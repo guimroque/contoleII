@@ -1,0 +1,49 @@
+EQUAÇÕES ENTRADA
+x(t) = A.x + B.u
+
+EQUAÇÕES SAÍDA
+y(t) = C.x + D.u
+
+GERANDO NO ESPAÇO DE ESTADOS
+A = 
+B = 
+C = eye(ordem)
+D = 
+sys = ss(A,B,C,D)
+
+ESPAÇO DE ESTADOS PARA FUNÇÃO DE TRANSFERENCIA
+[num den] = ss2tf(A,B,C,D)
+sys2 = tf(num(1),den(1))
+sys3 = tf(num(2),den(2))
+
+FUNÇÃO DE TRANSFERENCIA PARA ESPAÇO DE ESTADOS
+sys = tf([1],[1 1 1])
+[A, B, C, D] = tf2ss(sys)
+
+CONTROLABILIDADE 
+A =
+B =
+Cx = ctrb(A,B)
+Rank(Cx) // se for igual ordem matriz A é controlável
+
+OBSERVABILIDADE 
+A =
+C = eye(ordem)
+Ox = ctrb(A,C)
+Rank(Ox) // se for igual ordem matriz A é observável
+
+1a LEI - sem ref entrada; entrada eh o produto de vetor(ou matriz) de ganhos (k) reais pelo vetor de informação das variáveis de estado (x)
+2a LEI - com ref entrada; pelo menos 1 polo na origem (0) em malha aberta
+3a LEI - com ref entrada; não pode ter polo na origem (0) em malha aberta. Finalidade de impor erro = 0 para entrada degrau constante integração Ki. KK = [K -Ki]
+
+polos naturais = eig(A)
+
+ACKERMAN 1 E 2 LEI
+K = acker(A,B,P)
+
+ACKERMAN 3 LEI
+K = acker(AA,BB,P)
+K = [K1 Ki]
+
+ALGÉBRICO 3 LEI: usa-se AA BB KK na fórmula para achar os ganhos
+
