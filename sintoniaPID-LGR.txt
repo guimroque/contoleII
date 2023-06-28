@@ -1,4 +1,7 @@
-csi=0.517; wn=0.103;
+%========== [PARAMETROS CONFIGURAVEIS] ==========
+csi=0.517;
+wn=0.103;
+%========== [PARAMETROS CONFIGURAVEIS] ==========
 s1=(-csi*wn)+i*(wn*sqrt(1-csi^2));
 mods1=abs(s1);
 beta=angled(s1);
@@ -7,3 +10,6 @@ modgs1=abs(gs1);
 fi=angled(gs1);
 ki=(-sin(fi)*mods1^2)/(mods1*modgs1*sin(beta));
 kp=(-sin(beta+fi)/(modgs1*sin(beta)))-((2*ki*cos(beta))/(mods1));
+
+
+
